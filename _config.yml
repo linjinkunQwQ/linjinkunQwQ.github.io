@@ -17,21 +17,21 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 # Site Settings
 locale                   : "zh-CN"  # 改成中文
 direction                : # "ltr" (default), "rtl" # set the direction of the page
-title                    : "林晋堃的博客"
+title                    : "linjinkun 的博客"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "林晋堃"
+name                     : "linjinkun"
 description              : "记录学习与成长的地方"
 url                      : "https://linjinkunqwq.github.io"  # 改成你的博客地址
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "linjinkunQwQ/linjinkunQwQ.github.io"  # 改成你的仓库地址
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : "林晋堃"  # 显示在顶部的标题
+masthead_title           : "linjinkun"  # 显示在顶部的标题
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
 enable_copy_code_button  : # true, false (default)
-copyright                : "林晋堃"  # 版权信息改成你的名字
+copyright                : "linjinkun"  # 版权信息改成你的名字
 copyright_url            : "https://linjinkunqwq.github.io"  # 版权链接改成你的博客地址
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
@@ -101,7 +101,7 @@ og_image_alt             : # Alt text for Open Graph/Twitter default site image
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
   type                   : # Person or Organization (defaults to Person)
-  name                   : "林晋堃"  # 改成你的名字
+  name                   : "linjinkun"  # 改成你的名字
   links: # An array of links to social media profiles
 
 # Analytics
@@ -114,7 +114,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "林晋堃"
+  name             : "linjinkun"
   avatar           : # 可以放头像，比如 "/assets/images/avatar.jpg"
   bio              : "一个热爱编程的学习者"
   location         : "地球"
