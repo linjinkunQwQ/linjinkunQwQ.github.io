@@ -26,7 +26,7 @@ url                      : "https://linjinkunqwq.github.io"  # 改成你的博�
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "linjinkunQwQ/linjinkunQwQ.github.io"  # 改成你的仓库地址
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : logo: "https://cdn.luogu.com.cn/upload/image_hosting/c04spkii.png"   # 头像图片的路径
 masthead_title           : "linjinkun"  # 显示在顶部的标题
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
@@ -298,7 +298,7 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments: # true
       share: true
