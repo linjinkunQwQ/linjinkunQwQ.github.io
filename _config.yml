@@ -303,13 +303,3 @@ defaults:
       comments: # true
       share: true
       related: true
-
-comments:
-  provider: "giscus"
-  giscus:
-    repo_id: "R_kgDOSsW4bQ"
-    category_name: "Announcements"
-    category_id: "DIC_kwDOSsW4bc4C-Mpl"
-    discussion_term: "pathname"
-    reactions_enabled: "1"
-    theme: "dark_dimmed"
