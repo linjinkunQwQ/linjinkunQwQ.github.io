@@ -1,0 +1,149 @@
+---
+title: "洛谷 P2260 [清华集训2012]模积和 题解"
+date: 2026-05-31
+categories: [算法, 数论]
+tags: [整除分块, 数学, 模运算]
+---
+
+> 题目传送门：[洛谷 P2260 [清华集训2012]模积和](https://hydro.ac/p/luogu-P2260)
+
+首先 $i \not= j$ 这个条件十分碍眼，但我们可以通过一种很显然的方式消除这个限制：
+
+$$
+\begin{align*}
+\sum_{i = 1}^n \sum_{j = 1}^m (n \bmod i) &\times (m \bmod j),\ i \not= j \\
+&\Downarrow \\
+\sum_{i = 1}^n \sum_{j = 1}^m (n \bmod i) &\times (m \bmod j)-\sum_{i = 1}^{\min(n,m)} (n \bmod i) \times (m \bmod i)
+\end{align*}
+$$
+
+令：
+
+$$
+\begin{align*}
+f(n) &= \sum_{i = 1}^n \sum_{j = 1}^m (n \bmod i) \times (m \bmod j) \\
+g(n,m) &= \sum_{i = 1}^{\min(n,m)} (n \bmod i) \times (m \bmod i)
+\end{align*}
+$$
+
+先考虑如何求 $f(n)$。
+
+这种题目乍一看没啥思路，考虑整除分块，所以我们尝试将 $\bmod$ 改写成整除的形式：
+
+$$
+\begin{align*}
+f(n) &= \sum_{i = 1}^n \sum_{j = 1}^m (n \bmod i) \times (m \bmod j) \\
+&= \sum_{i = 1}^n \sum_{j = 1}^m \left(n-i \left\lfloor \frac{n}{i} \right\rfloor \right) \times \left(m-j \left\lfloor \frac{m}{j} \right\rfloor \right) \\
+&= \sum_{i = 1}^n \left(n-i \left\lfloor \frac{n}{i} \right\rfloor \right) \times \sum_{j = 1}^m \left(m-j \left\lfloor \frac{m}{j} \right\rfloor \right)
+\end{align*}
+$$
+
+这两个和式的本质是相同的，所以只考虑第一个和式的求法。
+
+我们再次变形：
+
+$$
+\begin{align*}
+\sum_{i = 1}^n \left(n-i \left\lfloor \frac{n}{i} \right\rfloor \right) &= \sum_{i = 1}^n n-\sum_{i = 1}^n \left(i \left\lfloor \frac{n}{i} \right\rfloor \right) \\
+&= n^2-\sum_{i = 1}^n \left(i \left\lfloor \frac{n}{i} \right\rfloor \right)
+\end{align*}
+$$
+
+很显然，$n^2$ 是常数不用在意，并且它后面的和式可以用整除分块解决。
+
+接下来考虑如何求 $g(n,m)$。
+
+依旧将 $\bmod$ 改写成整除的形式，令 $k = \min(n,m)$，于是：
+
+$$
+\begin{align*}
+g(n,m) &= \sum_{i = 1}^k (n \bmod i) \times (m \bmod i) \\
+&= \sum_{i = 1}^k \left(n-i \left\lfloor \frac{n}{i} \right\rfloor \right) \times \left(m-i \left\lfloor \frac{m}{i} \right\rfloor \right) \\
+&= \sum_{i = 1}^k \left(nm-n \times i \left\lfloor \frac{m}{i} \right\rfloor-m \times i \left\lfloor \frac{n}{i} \right\rfloor+i^2 \left\lfloor \frac{n}{i} \right\rfloor \left\lfloor \frac{m}{i} \right\rfloor \right) \\
+&= \sum_{i = 1}^k nm-\sum_{i = 1}^k \left(n \times i \left\lfloor \frac{m}{i} \right\rfloor+m \times i \left\lfloor \frac{n}{i} \right\rfloor+i^2 \left\lfloor \frac{n}{i} \right\rfloor \left\lfloor \frac{m}{i} \right\rfloor \right) \\
+&= nmk-\sum_{i = 1}^k \left(n \times i \left\lfloor \frac{m}{i} \right\rfloor+m \times i \left\lfloor \frac{n}{i} \right\rfloor+i^2 \left\lfloor \frac{n}{i} \right\rfloor \left\lfloor \frac{m}{i} \right\rfloor \right)
+\end{align*}
+$$
+
+$nmk$ 是常数，而旁边的和式和 $f(n)$ 的那个和式本质上的区别仅仅只是它有一个 $i^2$。如果它只有 $i$ 的话就可以用等差数列求和公式，但是 $i^2$ 所组成的数列并不是一个等差数列，所以我们得引入一个新的公式：
+
+$$
+\sum_{i = 1}^n i^2 = \frac{n(n+1)(2n+1)}{6}
+$$
+
+由于和式是可差分式，所以若令：
+
+$$
+sum_i = \sum_{j = 1}^i j^2
+$$
+
+那么：
+
+$$
+\sum_{i = l}^r i^2 = sum_r-sum_{l-1}
+$$
+
+于是一段区间求平方和的公式就出现了。
+
+那么唯一的难题解决后，就可以用整除分块来做了。
+
+最后的答案就是 $(f(n) \times f(m)-g(n,m)) \bmod 19940417$。
+
+---
+
+## C++ 实现
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+#define mod 19940417
+
+int sp(int n)
+{
+    return (__int128)n*(n+1)*((n<<1)+1)/6%mod;
+}
+
+int spq(int l,int r)
+{
+    return (sp(r)-sp(l-1)+mod)%mod;
+}
+
+int f(int n)
+{
+    long long ans = 1ll*n*n;
+    for(int l = 1;l<=n;)
+    {
+        int w = n/l, r = n/w;
+        ans -= 1ll*w*(l+r)*(r-l+1)>>1;
+        l = r+1;
+    }
+    return ans%mod;
+}
+
+int g(int n,int m)
+{
+    int k = min(n,m);
+    int ans = 1ll*n*m%mod*k%mod;
+    for(int l = 1;l<=k;)
+    {
+        int wn = n/l, wm = m/l, r = min(n/wn, m/wm);
+        int s = (1ll*(l+r)*(r-l+1)>>1)%mod;
+        ans = (ans - 1ll*s*n%mod*wm%mod + mod)%mod;
+        ans = (ans - 1ll*s*m%mod*wn%mod + mod)%mod;
+        ans = (ans + 1ll*spq(l,r)*wn%mod*wm%mod)%mod;
+        l = r+1;
+    }
+    return ans;
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int n,m;
+    cin >> n >> m;
+    cout << (1ll*f(n)*f(m)%mod - g(n,m) + mod)%mod;
+    return 0;
+}
+```
