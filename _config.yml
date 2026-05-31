@@ -115,10 +115,10 @@ analytics:
 # Site Author
 author:
   name             : "linjinkun"
-  avatar           : # 可以放头像，比如 "/assets/images/avatar.jpg"
-  bio              : "一个热爱编程的学习者"
-  location         : "地球"
-  email            : "你的邮箱@example.com"  # 有的话填上
+  avatar           : "https://cdn.luogu.com.cn/upload/image_hosting/c04spkii.png" # 头像
+  bio              : "初一蒟蒻 OIer"
+  location         : "海南·海口"
+  email            : "207994823@qq.com"  
   # fediverse      : "@you@instance.social"  # used for fediverse:creator meta tag
   links:
     - label: "GitHub"
@@ -126,7 +126,7 @@ author:
       url: "https://github.com/linjinkunQwQ"  # 改成你的GitHub地址
     - label: "Email"
       icon: "fas fa-fw fa-square-envelope"
-      url: "mailto:你的邮箱@example.com"  # 改成你的邮箱
+      url: "mailto:207994823@qq.com"  # 改成你的邮箱
 
 # Site Footer
 footer:
