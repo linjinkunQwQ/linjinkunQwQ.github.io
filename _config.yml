@@ -26,8 +26,8 @@ url                      : "https://linjinkunqwq.github.io"  # 改成你的博�
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "linjinkunQwQ/linjinkunQwQ.github.io"  # 改成你的仓库地址
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "https://cdn.luogu.com.cn/upload/image_hosting/c04spkii.png"   # 头像图片的路径
-masthead_title           : "linjinkun"  # 显示在顶部的标题
+//logo                     : "https://cdn.luogu.com.cn/upload/image_hosting/c04spkii.png"   # 头像图片的路径
+masthead_title           : "愿此行，终抵群星。"  # 显示在顶部的标题
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
 enable_copy_code_button  : # true, false (default)
