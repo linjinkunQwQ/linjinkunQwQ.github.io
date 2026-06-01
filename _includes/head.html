@@ -43,3 +43,32 @@
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+
+<script>
+  // 等待 giscus 的 iframe 加载完成并监听消息
+  function setupMathJaxForGiscus() {
+    const observer = new MutationObserver(function(mutations) {
+      // 检查是否有新的 giscus 评论框或评论内容出现
+      if (document.querySelector('.giscus-frame') || document.querySelector('.giscus')) {
+        // 触发 MathJax 重新渲染整个页面（包括动态内容）
+        if (window.MathJax) {
+          MathJax.typesetPromise();
+        }
+        observer.disconnect(); // 只执行一次
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+  
+  // 页面加载后执行
+  document.addEventListener('DOMContentLoaded', setupMathJaxForGiscus);
+  
+  // 如果 giscus 通过 postMessage 通知加载完成，也可以监听
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.giscus) {
+      if (window.MathJax) {
+        setTimeout(() => MathJax.typesetPromise(), 500);
+      }
+    }
+  });
+</script>
