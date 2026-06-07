@@ -39,3 +39,9 @@ p, .entry-content p {
 .entry-content {
   word-break: break-word;
 }
+
+.mjx-chtml, .MathJax_SVG_Display {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    max-width: 100%;
+}
