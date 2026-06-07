@@ -20,3 +20,22 @@ search: false
 mjx-container[display="true"] {
   margin: 1em 0 !important;
 }
+
+/* --- 以下是修复公式下方文字布局的核心代码 --- */
+
+/* 1. 为公式容器启用水平滚动，防止溢出撑破布局 */
+.mjx-chtml, .MathJax_SVG_Display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+/* 2. 确保公式前后的段落能正确换行 */
+p, .entry-content p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 3. 特别针对文章主体内容，强制自动换行 */
+.entry-content {
+  word-break: break-word;
+}
