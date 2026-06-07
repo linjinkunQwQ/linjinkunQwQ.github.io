@@ -45,3 +45,28 @@ p, .entry-content p {
     overflow-y: hidden !important;
     max-width: 100%;
 }
+
+/* 强制所有公式容器独占一行，并清除下方文字的环绕 */
+.mjx-container,
+.MathJax,
+.MathJax_SVG_Display,
+.mjx-chtml {
+  display: block !important;
+  clear: both !important;
+  float: none !important;
+  width: auto !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  margin-bottom: 0.5em !important;
+  margin-top: 0.5em !important;
+}
+
+/* 确保公式后面的段落正常显示 */
+.entry-content p,
+.entry-content div:not(.mjx-container) {
+  clear: both !important;
+  display: block !important;
+  width: 100% !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
