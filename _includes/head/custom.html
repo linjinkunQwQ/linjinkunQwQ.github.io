@@ -13,3 +13,21 @@
     }
   });
 </script>
+
+<style>
+  /* 强制公式独占一行，清除环绕 */
+  .mjx-container, .MathJax, .MathJax_SVG_Display, .mjx-chtml {
+    display: block !important;
+    clear: both !important;
+    float: none !important;
+    margin: 0.5em 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+  }
+  /* 确保文章段落不会环绕公式 */
+  .entry-content p, .entry-content > div {
+    clear: both !important;
+    width: 100% !important;
+    word-break: break-word !important;
+  }
+</style>
