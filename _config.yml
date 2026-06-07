@@ -30,7 +30,7 @@ teaser                   : # path of fallback teaser image, e.g. "/assets/images
 masthead_title           : "愿此行，终抵群星。"  # 显示在顶部的标题
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
-enable_copy_code_button  : true
+enable_copy_code_button  : false
 copyright                : "linjinkun"  # 版权信息改成你的名字
 copyright_url            : "https://linjinkunqwq.github.io"  # 版权链接改成你的博客地址
 comments:
